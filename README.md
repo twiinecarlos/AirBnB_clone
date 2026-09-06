@@ -8,13 +8,14 @@ The goal of this project is to build a complete web application step by step, st
 
 The project focuses on understanding object-oriented programming, data serialization, persistence, and the development of a command-line interface.
 
-## Command Interpreter
+## The Command Interpreter
 
 The command interpreter is a command-line interface (CLI) that allows users to interact with the application's objects.
 
-Through the command interpreter, users can:
+It will allow users to:
 
 - Create new objects
+- Retrieve objects
 - Display objects
 - Update object attributes
 - Destroy objects
@@ -23,29 +24,21 @@ Through the command interpreter, users can:
 
 ### How to Start It
 
-Clone the repository:
-
-    git clone https://github.com/<your-username>/AirBnB_clone.git
-
-Move into the project directory:
-
-    cd AirBnB_clone
-
-Start the command interpreter:
+Once the command interpreter is implemented, it can be started from the project directory using:
 
     ./console.py
 
-You can also start it using Python:
+It can also be started using Python:
 
     python3 console.py
 
 ### How to Use It
 
-Once the command interpreter starts, the following prompt is displayed:
+When the command interpreter starts, it displays the following prompt:
 
     (hbnb)
 
-You can enter commands at the prompt.
+Commands can then be entered at the prompt.
 
 For example:
 
@@ -55,75 +48,43 @@ To exit the command interpreter:
 
     (hbnb) quit
 
-You can also use:
+The interpreter can also be exited using:
 
     (hbnb) EOF
 
-### Available Commands
+### Examples
 
-#### `help`
-
-Displays available commands.
-
-Example:
+Display the available commands:
 
     (hbnb) help
 
-#### `quit`
-
-Exits the command interpreter.
-
-Example:
-
-    (hbnb) quit
-
-#### `create`
-
-Creates a new instance of a class.
-
-Example:
+Create a new BaseModel instance:
 
     (hbnb) create BaseModel
 
-The command returns the ID of the newly created object.
-
-#### `show`
-
-Displays the string representation of an instance based on its class and ID.
-
-Example:
+Display an existing object:
 
     (hbnb) show BaseModel 1234-5678
 
-#### `destroy`
-
-Deletes an instance based on its class and ID.
-
-Example:
-
-    (hbnb) destroy BaseModel 1234-5678
-
-#### `all`
-
-Displays all instances, or all instances of a specified class.
-
-Examples:
-
-    (hbnb) all
-
-    (hbnb) all BaseModel
-
-#### `update`
-
-Updates an instance by adding or changing an attribute.
-
-Example:
+Update an object:
 
     (hbnb) update BaseModel 1234-5678 name "John"
 
+Destroy an object:
+
+    (hbnb) destroy BaseModel 1234-5678
+
+Display all objects:
+
+    (hbnb) all
+
+Display all objects of a specific class:
+
+    (hbnb) all BaseModel
+
 ### Non-Interactive Mode
 
-Commands can also be executed by piping input into the command interpreter.
+Commands can also be passed to the command interpreter using standard input.
 
 Example:
 
@@ -141,8 +102,8 @@ The project will be developed progressively and may contain components such as:
 - `models/` - application models
 - `tests/` - unit tests
 - `README.md` - project documentation
-- `AUTHORS` - contributors to the repository
+- `AUTHORS` - list of contributors
 
 ## Authors
 
-See the `AUTHORS` file for the list of contributors.
+See the `AUTHORS` file for the list of contributors to the repository.
