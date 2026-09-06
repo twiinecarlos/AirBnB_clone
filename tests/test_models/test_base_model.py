@@ -108,6 +108,47 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(obj_dict["name"], "My First Model")
         self.assertEqual(obj_dict["my_number"], 89)
 
+    def test_create_from_dictionary(self):
+        """Test creating a BaseModel from a dictionary."""
+        model = BaseModel()
+        model.name = "My_First_Model"
+        model.my_number = 89
+
+        model_dict = model.to_dict()
+        new_model = BaseModel(**model_dict)
+
+        self.assertEqual(new_model.id, model.id)
+        self.assertEqual(new_model.name, model.name)
+        self.assertEqual(new_model.my_number, model.my_number)
+        self.assertEqual(new_model.created_at, model.created_at)
+        self.assertEqual(new_model.updated_at, model.updated_at)
+
+    def test_create_from_dictionary_dates_are_datetime(self):
+        """Test dates are converted back to datetime objects."""
+        model = BaseModel()
+        new_model = BaseModel(**model.to_dict())
+
+        self.assertIsInstance(new_model.created_at, datetime)
+        self.assertIsInstance(new_model.updated_at, datetime)
+
+    def test_create_from_dictionary_ignores_class(self):
+        """Test __class__ is not added to the instance."""
+        model = BaseModel()
+        new_model = BaseModel(**model.to_dict())
+
+        self.assertNotIn("__class__", new_model.__dict__)
+
+    def test_create_from_dictionary_preserves_attributes(self):
+        """Test custom attributes are restored."""
+        model = BaseModel()
+        model.name = "My_First_Model"
+        model.my_number = 89
+
+        new_model = BaseModel(**model.to_dict())
+
+        self.assertEqual(new_model.name, "My_First_Model")
+        self.assertEqual(new_model.my_number, 89)
+
 
 if __name__ == "__main__":
     unittest.main()
