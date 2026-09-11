@@ -14,13 +14,13 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """Handle EOF and quit the program."""
+        """Handle EOF and quit the command interpreter."""
         print()
         return True
 
     def emptyline(self):
         """Do nothing when an empty line is entered."""
-        pass
+        return
 
 
 if __name__ == '__main__':
