@@ -160,16 +160,13 @@ class HBNBCommand(cmd.Cmd):
         attribute = args[2]
         value = args[3]
 
-        if not hasattr(classes[args[0]], attribute):
-            print("** attribute name missing **")
-            return
+        if hasattr(classes[args[0]], attribute):
+            attribute_type = type(getattr(classes[args[0]], attribute))
 
-        attribute_type = type(getattr(classes[args[0]], attribute))
-
-        if attribute_type is int:
-            value = int(value)
-        elif attribute_type is float:
-            value = float(value)
+            if attribute_type is int:
+                value = int(value)
+            elif attribute_type is float:
+                value = float(value)
 
         setattr(instance, attribute, value)
         instance.save()
