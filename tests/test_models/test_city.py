@@ -19,14 +19,12 @@ class TestCity(unittest.TestCase):
         self.assertIsNotNone(city.updated_at)
 
     def test_city_attributes(self):
-        """Test City attributes."""
-        city = City()
+        """Test City class attributes."""
+        self.assertTrue(hasattr(City, "state_id"))
+        self.assertEqual(City.state_id, "")
 
-        city.state_id = "state123"
-        city.name = "Kigali"
-
-        self.assertEqual(city.state_id, "state123")
-        self.assertEqual(city.name, "Kigali")
+        self.assertTrue(hasattr(City, "name"))
+        self.assertEqual(City.name, "")
 
 
 if __name__ == "__main__":

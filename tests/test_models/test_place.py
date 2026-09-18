@@ -19,31 +19,39 @@ class TestPlace(unittest.TestCase):
         self.assertIsNotNone(place.updated_at)
 
     def test_place_attributes(self):
-        """Test Place attributes."""
-        place = Place()
+        """Test Place class attributes."""
+        self.assertTrue(hasattr(Place, "city_id"))
+        self.assertEqual(Place.city_id, "")
 
-        place.city_id = "city123"
-        place.user_id = "user123"
-        place.name = "My Place"
-        place.description = "A nice place"
-        place.number_rooms = 3
-        place.number_bathrooms = 2
-        place.max_guest = 5
-        place.price_by_night = 100
-        place.latitude = 1.95
-        place.longitude = 30.06
-        place.amenity_ids = ["amenity1"]
+        self.assertTrue(hasattr(Place, "user_id"))
+        self.assertEqual(Place.user_id, "")
 
-        self.assertEqual(place.city_id, "city123")
-        self.assertEqual(place.user_id, "user123")
-        self.assertEqual(place.name, "My Place")
-        self.assertEqual(place.number_rooms, 3)
-        self.assertEqual(place.number_bathrooms, 2)
-        self.assertEqual(place.max_guest, 5)
-        self.assertEqual(place.price_by_night, 100)
-        self.assertEqual(place.latitude, 1.95)
-        self.assertEqual(place.longitude, 30.06)
-        self.assertEqual(place.amenity_ids, ["amenity1"])
+        self.assertTrue(hasattr(Place, "name"))
+        self.assertEqual(Place.name, "")
+
+        self.assertTrue(hasattr(Place, "description"))
+        self.assertEqual(Place.description, "")
+
+        self.assertTrue(hasattr(Place, "number_rooms"))
+        self.assertEqual(Place.number_rooms, 0)
+
+        self.assertTrue(hasattr(Place, "number_bathrooms"))
+        self.assertEqual(Place.number_bathrooms, 0)
+
+        self.assertTrue(hasattr(Place, "max_guest"))
+        self.assertEqual(Place.max_guest, 0)
+
+        self.assertTrue(hasattr(Place, "price_by_night"))
+        self.assertEqual(Place.price_by_night, 0)
+
+        self.assertTrue(hasattr(Place, "latitude"))
+        self.assertEqual(Place.latitude, 0.0)
+
+        self.assertTrue(hasattr(Place, "longitude"))
+        self.assertEqual(Place.longitude, 0.0)
+
+        self.assertTrue(hasattr(Place, "amenity_ids"))
+        self.assertEqual(Place.amenity_ids, [])
 
 
 if __name__ == "__main__":

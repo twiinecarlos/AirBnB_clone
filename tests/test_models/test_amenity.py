@@ -19,11 +19,9 @@ class TestAmenity(unittest.TestCase):
         self.assertIsNotNone(amenity.updated_at)
 
     def test_amenity_name(self):
-        """Test the Amenity name attribute."""
-        amenity = Amenity()
-        amenity.name = "Wi-Fi"
-
-        self.assertEqual(amenity.name, "Wi-Fi")
+        """Test the Amenity name class attribute."""
+        self.assertTrue(hasattr(Amenity, "name"))
+        self.assertEqual(Amenity.name, "")
 
 
 if __name__ == "__main__":

@@ -19,16 +19,15 @@ class TestReview(unittest.TestCase):
         self.assertIsNotNone(review.updated_at)
 
     def test_review_attributes(self):
-        """Test Review attributes."""
-        review = Review()
+        """Test Review class attributes."""
+        self.assertTrue(hasattr(Review, "place_id"))
+        self.assertEqual(Review.place_id, "")
 
-        review.place_id = "place123"
-        review.user_id = "user123"
-        review.text = "Great place!"
+        self.assertTrue(hasattr(Review, "user_id"))
+        self.assertEqual(Review.user_id, "")
 
-        self.assertEqual(review.place_id, "place123")
-        self.assertEqual(review.user_id, "user123")
-        self.assertEqual(review.text, "Great place!")
+        self.assertTrue(hasattr(Review, "text"))
+        self.assertEqual(Review.text, "")
 
 
 if __name__ == "__main__":

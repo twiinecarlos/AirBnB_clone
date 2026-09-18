@@ -19,11 +19,9 @@ class TestState(unittest.TestCase):
         self.assertIsNotNone(state.updated_at)
 
     def test_state_name(self):
-        """Test the State name attribute."""
-        state = State()
-        state.name = "Kigali"
-
-        self.assertEqual(state.name, "Kigali")
+        """Test the State name class attribute."""
+        self.assertTrue(hasattr(State, "name"))
+        self.assertEqual(State.name, "")
 
 
 if __name__ == "__main__":
