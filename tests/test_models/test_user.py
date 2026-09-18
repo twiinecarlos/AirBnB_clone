@@ -20,17 +20,17 @@ class TestUser(unittest.TestCase):
 
     def test_user_attributes(self):
         """Test User class attributes."""
-        user = User()
+        self.assertTrue(hasattr(User, "email"))
+        self.assertEqual(User.email, "")
 
-        user.email = "test@example.com"
-        user.password = "password"
-        user.first_name = "John"
-        user.last_name = "Doe"
+        self.assertTrue(hasattr(User, "password"))
+        self.assertEqual(User.password, "")
 
-        self.assertEqual(user.email, "test@example.com")
-        self.assertEqual(user.password, "password")
-        self.assertEqual(user.first_name, "John")
-        self.assertEqual(user.last_name, "Doe")
+        self.assertTrue(hasattr(User, "first_name"))
+        self.assertEqual(User.first_name, "")
+
+        self.assertTrue(hasattr(User, "last_name"))
+        self.assertEqual(User.last_name, "")
 
     def test_user_inherits_base_model(self):
         """Test that User inherits from BaseModel."""
